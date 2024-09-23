@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22757" systemVersion="23G93" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithSwiftData="YES" userDefinedModelVersionIdentifier="">
+    <entity name="League" representedClassName=".League" syncable="YES">
+        <attribute name="address" optional="YES" attributeType="String"/>
+        <attribute name="describe" attributeType="String"/>
+        <attribute name="email" attributeType="String"/>
+        <attribute name="image" attributeType="Binary"/>
+        <attribute name="manager" attributeType="String"/>
+        <attribute name="name" attributeType="String"/>
+        <attribute name="phone" attributeType="String"/>
+        <attribute name="summary" attributeType="String"/>
+        <attribute name="type" attributeType="String"/>
+        <relationship name="teams" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Team" inverseName="league" inverseEntity="Team"/>
+    </entity>
+    <entity name="Match" representedClassName=".Match" syncable="YES">
+        <attribute name="date" attributeType="String"/>
+        <attribute name="leagueName" attributeType="String"/>
+        <attribute name="team1Goal" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="team1Logo" attributeType="Binary"/>
+        <attribute name="team1Name" attributeType="String"/>
+        <attribute name="team2Goal" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="team2Logo" attributeType="Binary"/>
+        <attribute name="team2Name" attributeType="String"/>
+    </entity>
+    <entity name="Team" representedClassName=".Team" syncable="YES">
+        <attribute name="logoImage" attributeType="Binary"/>
+        <attribute name="name" attributeType="String"/>
+        <attribute name="point" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="rank" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="league" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="League" inverseName="teams" inverseEntity="League"/>
+    </entity>
+</model>
